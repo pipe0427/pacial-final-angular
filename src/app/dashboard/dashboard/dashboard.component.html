@@ -1,0 +1,20 @@
+<app-nav></app-nav>
+
+<div class="row my-container mt-3">
+    <div class="col-2 side h-100 overflow-auto">
+      <div *ngIf="admin">
+        <app-sidenav></app-sidenav>
+      </div>
+      <div *ngIf="gamer">
+        <app-sidenav-gamer></app-sidenav-gamer>
+      </div>
+      <div *ngIf="invitado">
+        <app-sidenav-invitado></app-sidenav-invitado>
+      </div>
+    </div>
+    <div class="col-10 shadow h-100 overflow-auto">
+      <div class="dashboard-router">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+</div>
