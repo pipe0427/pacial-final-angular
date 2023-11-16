@@ -12,6 +12,8 @@ export class MainComponent {
 
   edad:boolean = false
   juegos:Juego[]
+  nombre!:string
+  rol!: string
   constructor(private juegoService:JuegoService,
     private usuarioService:UsuarioSesrvice) {
       this.juegos = []
@@ -40,7 +42,10 @@ export class MainComponent {
   buscarUsuario(){
     const result = this.usuarioService.buscarUsuarioEamil(sessionStorage.getItem('user'))
 
+
     if(result!= null){
+      this.nombre = result.nombre
+      this.rol = result.tipo
       if(result.edad >= 18){
         this.edad = true
       }else{
