@@ -22,9 +22,14 @@ export class JuegoDescuentoComponent {
   }
 
   listarjuegos() {
-      for(let juego of this.juegoService.listarJuegos()){
-        if(juego.descuento){
-          this.juegos.push(juego)
+    for(let juego of this.juegoService.listarJuegos()){
+      if(this.edad == true && juego.descuento == true){
+        this.juegos.push(juego)
+      }else{
+        
+          if(juego.edadPermitida < 18 && juego.descuento == true){
+            this.juegos.push(juego)
+          }
         }
       }
   }
